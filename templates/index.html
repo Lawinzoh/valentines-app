@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Valentine 💕</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-animation">
+        <div class="rose-flower">🌹</div>
+        <div class="rose-flower">🌹</div>
+        <div class="rose-flower">🌹</div>
+        <div class="rose-flower">🌹</div>
+    </div>
+    
+    <div class="container">
+        <!-- Introduction Card -->
+        <div class="card intro-card active" id="introCard">
+            <div class="card-content">
+                <div style="text-align: center; margin-bottom: 15px; font-size: 1.5rem;">
+                    🌹 🌹 🌹
+                </div>
+                <div class="heart-icon">💕</div>
+                <h1 class="title">Hello, Beautiful</h1>
+                <p class="subtitle">Let me tell you something special...</p>
+                <p class="intro-text">
+                    I'm someone who's been blessed to meet you, someone who makes every single day brighter just by being in it. Life has a way of becoming more meaningful when you're around.
+                </p>
+                <button class="btn btn-primary" onclick="nextCard('intentionCard')">Continue Reading...</button>
+            </div>
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Love">
+            </div>
+        </div>
+
+        <!-- Our Story Card -->
+        <div class="card feelings-card" id="intentionCard">
+            <div class="card-content">
+                <div style="text-align: center; margin-bottom: 15px; font-size: 1.5rem;">
+                    🌹 ✨ 🌹
+                </div>
+                <div class="heart-icon">✨</div>
+                <h2 class="title">How You Make Me Feel</h2>
+                <p class="feelings-text">
+                    With you, I've learned what it means to truly care about someone. Your laugh is my favorite sound, your smile brightens my darkest days, and your presence makes everything feel right. 
+                </p>
+                <p class="feelings-text">
+                    Every moment with you feels like a blessing. The way you light up the world, the kindness in your heart, and the genuine love you give—it all means everything to me.
+                </p>
+                <p class="feelings-text">
+                    You're not just someone I like; you're someone I want to spend my time with, someone I dream about, and someone who makes me want to be a better person.
+                </p>
+                <button class="btn btn-primary" onclick="nextCard('questionCard')">Next...</button>
+            </div>
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Together">
+            </div>
+        </div>
+
+        <!-- The Question Card -->
+        <div class="card question-card" id="questionCard">
+            <div class="card-content">
+                <div style="text-align: center; margin-bottom: 15px; font-size: 1.5rem;">
+                    🌹 💗 🌹
+                </div>
+                <div class="heart-icon romantic-bounce">💗</div>
+                <h2 class="title">The Question</h2>
+                <p class="question-text">
+                    So here I am, putting my heart on the line, asking you something that means the world to me...
+                </p>
+                <h3 class="big-question">Will you be my Valentine?</h3>
+                <p class="sub-question">Not just for one day, but for as long as you'll have me?</p>
+                
+                <div class="button-group">
+                    <button class="btn btn-yes" onclick="handleYes()">
+                        <span class="btn-emoji">💕</span>
+                        <span>YES!</span>
+                    </button>
+                    <button class="btn btn-no" id="noBtn" onclick="handleNo()">
+                        <span class="btn-emoji">😢</span>
+                        <span>No...</span>
+                    </button>
+                </div>
+            </div>
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Question">
+            </div>
+        </div>
+
+        <!-- Yes Response Card -->
+        <div class="card response-card yes-card" id="yesCard">
+            <div class="card-content">
+                <div class="confetti"></div>
+                <div style="text-align: center; margin-bottom: 15px; font-size: 1.5rem;">
+                    🌹 🌹 🌹 🌹 🌹
+                </div>
+                <div class="heart-icon celebration">💕</div>
+                <h2 class="title">You Said YES!</h2>
+                <p class="response-text celebration-text">
+                    I am literally the happiest person alive right now! 🎉
+                </p>
+                <p class="response-text">
+                    Thank you for saying yes. Thank you for choosing me. Thank you for being the amazing person you are. 
+                </p>
+                <p class="response-text sweet-message">
+                    I promise to cherish every moment with you, to support your dreams, to make you laugh, and to love you with all my heart. You deserve the world, and I'll spend every day making sure you know how special you are to me.
+                </p>
+                <p class="response-text">
+                    Happy Valentine's Day to the love of my life. 💕
+                </p>
+                <button class="btn btn-primary" onclick="resetCards()">Start Over</button>
+            </div>
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1506692656969-c63152d4d8a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Celebration">
+            </div>
+        </div>
+
+        <!-- No Response Card -->
+        <div class="card response-card no-card" id="noCard">
+            <div class="card-content">
+                <div style="text-align: center; margin-bottom: 15px; font-size: 1.5rem;">
+                    🌹 💔 🌹
+                </div>
+                <div class="heart-icon sad">💔</div>
+                <h2 class="title">Oh... I see</h2>
+                <p class="response-text">
+                    Well, that's okay... or is it? 😏
+                </p>
+                <p class="response-text">
+                    You know what they say—persistence is key. So here's my plan: I'm going to keep being the best version of myself, keep making you smile, and keep showing you what you mean to me.
+                </p>
+                <p class="response-text funny-message">
+                    Maybe one day you'll change your mind and realize that I'm kind of amazing (your words, not mine 😉). Until then, I'll be right here, ready whenever you're ready.
+                </p>
+                <p class="response-text">
+                    The door to my heart is always open for you. ❤️
+                </p>
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="nextCard('questionCard')">Reconsider? 👀</button>
+                    <button class="btn btn-secondary" onclick="resetCards()">Just Kidding, Start Over</button>
+                </div>
+            </div>
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Thinking">
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
