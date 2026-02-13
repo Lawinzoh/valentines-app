@@ -379,8 +379,21 @@ body {
         min-height: auto;
     }
 
+    /* Show images on mobile: stack cards with the image on top */
     .card-image {
-        display: none;
+        display: block;
+        width: 100%;
+        height: 220px;
+        border-left: none;
+        border-top: 3px solid rgba(220, 20, 60, 0.12);
+    }
+
+    /* Make the image fill the image area while preserving aspect ratio */
+    .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
     }
 
     .card-content {
