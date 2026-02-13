@@ -379,7 +379,18 @@ body {
         min-height: auto;
     }
 
-    /* Show images on mobile: stack cards with the image on top */
+    /* Allow scrolling on mobile and show images stacked */
+    body {
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Ensure container can grow on mobile */
+    .container {
+        max-width: 100%;
+    }
+
+    /* Button visibility tweaks */
     .card-image {
         display: block;
         width: 100%;
@@ -394,6 +405,19 @@ body {
         height: 100%;
         object-fit: cover;
         display: block;
+    }
+
+    .button-group {
+        margin-top: 18px;
+        z-index: 5;
+        position: relative;
+    }
+
+    .btn {
+        width: 100%;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 6;
     }
 
     .card-content {
